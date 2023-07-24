@@ -12,6 +12,10 @@ import { BsPerformComponent } from './bs-perform/bs-perform.component';
 import { AccountComponent } from './account/account.component';
 import { InfoListComponent } from './account/info-list/info-list.component';
 import { PartnerInfoComponent } from './account/partner-info/partner-info.component';
+import { TourListComponent } from './tour/tour-list/tour-list.component';
+import { TourItemComponent } from './tour/tour-list/tour-item/tour-item.component';
+import { PacketListComponent } from './tour/tour-list/tour-item/packet-list/packet-list.component';
+import { PacketItemComponent } from './tour/tour-list/tour-item/packet-list/packet-item/packet-item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { PartnerInfoComponent } from './account/partner-info/partner-info.compon
     BsPerformComponent,
     AccountComponent,
     InfoListComponent,
-    PartnerInfoComponent
+    PartnerInfoComponent,
+    TourListComponent,
+    TourItemComponent,
+    PacketItemComponent,
+    PacketListComponent
   ],
   imports: [
     BrowserModule,
