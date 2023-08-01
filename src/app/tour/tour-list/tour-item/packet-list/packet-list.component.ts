@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./packet-list.component.css']
 })
 export class PacketListComponent {
-
+  
 }

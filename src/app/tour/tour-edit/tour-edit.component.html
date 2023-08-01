@@ -1,0 +1,74 @@
+<div class="container">
+    <form action="">
+        <!--Thông tin chung-->
+        <div>
+            <h4>Thông tin chung</h4>
+            <div class="form-group">
+                <label for="TourName">Tên Trải nghiệm</label>
+                <input type="text" id="TourName" formControlName="TourName" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="TourDesc">Mô tả Trải nghiệm</label>
+                <textarea type="text" id="TourDesc" formControlName="TourDesc" class="form-control" 
+                rows="6"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="TourName">Ưu điểm</label>
+                <small class="form-text text-muted">Những điểm nổi bật của trải nghiệm</small>
+                <input type="text" id="TourName" formControlName="TourName" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">Số liên lạc đối tác</label>
+                <input type="text" id="Contact" formControlName="Contact" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">Địa điểm tham quan</label>
+                <input type="text" id="Location" formControlName="Location" class="form-control">
+            </div>
+
+            <div class="form-group form-check">
+                <label for="">Ngôn ngữ</label>
+                <input type="checkbox" id="Language" formControlName="Language" class="form-check-input">
+            </div>
+        </div>
+        <!---->
+        <!--Hành trình tour-->
+        <div>
+
+        </div>
+        <!---->
+        <!--Thông tin đưa đón-->
+        <div>
+            <h4>Thông tin đưa đón</h4>
+            <div class="form-control">
+                <label for="">Giá dịch vụ
+                    <span class="form-text text-muted">(Tùy chọn)</span>
+                </label>
+                <input type="text" id="Price" formControlName="Price" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="TourDesc">Thông tin đưa đón
+                    <span class="form-text text-muted">(Tùy chọn)</span>
+                </label>
+                <textarea type="text" id="TourDesc" formControlName="TourDesc" class="form-control" 
+                rows="6"></textarea>
+            </div>
+        </div>
+        <!---->
+        <!--Ảnh minh họa-->
+        <div>
+            <div class="form-group">
+                <label for="Banner">Chọn ảnh chính</label>
+                <input type="file" id="Banner" class="form-control-file" >
+            </div>
+        </div>
+        <!---->
+        <!--Kiểm tra lại-->
+        <!---->
+    </form>
+</div>

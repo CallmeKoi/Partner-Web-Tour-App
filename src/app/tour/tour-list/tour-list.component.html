@@ -1,5 +1,97 @@
-<div class="container-fluid">
-    <div class="row">
-        <app-tour-item></app-tour-item>
+<div class="row">
+    <div class="col-3 mt-3">
+        This is filter box
     </div>
+    <div class="col-9 mt-3">
+        <div class="container mb-3">
+            <div class="d-flex justify-content-between">
+                <h4>Tour đang bán</h4>
+            </div>
+        <div class="container-fluid">
+            <div class="row">
+                <ng-container *ngFor="let tourItem of saleTour; let i = index" >
+                    <div class="card mb-3"
+                    *ngIf="tourItem.ForSale">
+                        <div class="card-body">
+                            <div class="row g-10">
+                                <div class="col-md-3">
+                                    <img src="{{ tourItem.ImageUrl }}" class="img-fluid rounded" alt="...">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="d-flex justify-content-between">
+                                        <h4 class="card-title">{{ tourItem.Name }}</h4>
+                                        <a>
+                                            <i class="bi bi-pencil-square" style="font-size: 1rem;"></i>Sửa
+                                        </a>
+                                    </div> 
+                                    <div class="d-flex">
+                                        <p class="badge bg-warning rounded-pill text-dark">Trạng thái kiểm duyệt</p>
+                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                    </div>   
+                                    <div class="d-flex justify-content-between">
+                                        <div class="accordion accordion-flush accordion-item mb-0 ">
+                                            <a class="accordion-button collapsed btn btn-light p-1" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#packetList" aria-expanded="false" aria-controls="packetList">
+                                                Xem # gói Tour
+                                            </a>
+                                        </div>
+                                        <button class="btn btn-primary">+ Thêm gói Tour</button>
+                                    </div>       
+                                </div>
+                            </div>
+                            <div class="accordion-collapse collapse" id="packetList">
+                                <app-packet-list ></app-packet-list>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-3">
+        <h4>Hồ sơ Tour</h4>
+        <div class="container-fluid">
+            <div class="row">
+                <ng-container *ngFor="let tourItem of saleTour; let i = index" >
+                    <div class="card mb-3"
+                    *ngIf="!tourItem.ForSale">
+                        <div class="card-body">
+                            <div class="row g-10">
+                                <div class="col-md-3">
+                                    <img src="{{ tourItem.ImageUrl }}" class="img-fluid rounded" alt="...">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="d-flex justify-content-between">
+                                        <h4 class="card-title">{{ tourItem.Name }}</h4>
+                                        <a>
+                                            <i class="bi bi-pencil-square" style="font-size: 1rem;"></i>Sửa
+                                        </a>
+                                    </div> 
+                                    <div class="d-flex">
+                                        <p class="badge bg-warning rounded-pill text-dark">Trạng thái kiểm duyệt</p>
+                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                    </div>   
+                                    <div class="d-flex justify-content-between">
+                                        <div class="accordion accordion-flush accordion-item mb-0 ">
+                                            <a class="accordion-button collapsed btn btn-light p-1" type="button" data-bs-toggle="collapse" 
+                                            data-bs-target="#packetList" aria-expanded="false" aria-controls="packetList">
+                                                Xem # gói Tour
+                                            </a>
+                                        </div>
+                                        <button class="btn btn-primary">+ Thêm gói Tour</button>
+                                    </div>       
+                                </div>
+                            </div>
+                            <div class="accordion-collapse collapse" id="packetList">
+                                <app-packet-list ></app-packet-list>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div> 
 </div>
+
+
+

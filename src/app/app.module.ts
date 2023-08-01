@@ -16,6 +16,8 @@ import { TourListComponent } from './tour/tour-list/tour-list.component';
 import { TourItemComponent } from './tour/tour-list/tour-item/tour-item.component';
 import { PacketListComponent } from './tour/tour-list/tour-item/packet-list/packet-list.component';
 import { PacketItemComponent } from './tour/tour-list/tour-item/packet-list/packet-item/packet-item.component';
+import { TourEditComponent } from './tour/tour-edit/tour-edit.component';
+import { PacketEditComponent } from './tour/packet-edit/packet-edit.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { PacketItemComponent } from './tour/tour-list/tour-item/packet-list/pack
     TourListComponent,
     TourItemComponent,
     PacketItemComponent,
-    PacketListComponent
+    PacketListComponent,
+    TourEditComponent,
+    PacketEditComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,12 @@
-<div class="card mb-3">
+<div *ngIf="tourItem.ForSale" class="card mb-3">
     <div class="card-body">
-        <div class="row g-0">
+        <div class="row g-10">
             <div class="col-md-3">
-              <img src="..." class="img-fluid rounded-start" alt="...">
+              <img src="{{ tourItem.ImageUrl }}" class="img-fluid rounded" alt="...">
             </div>
             <div class="col-md-9">
                 <div class="d-flex justify-content-between">
-                    <h4 class="card-title">Tour title</h4>
+                    <h4 class="card-title">{{ tourItem.Name }}</h4>
                     <a>
                         <i class="bi bi-pencil-square" style="font-size: 1rem;"></i>Sửa
                     </a>
@@ -17,17 +17,17 @@
                 </div>   
                 <div class="d-flex justify-content-between">
                     <div class="accordion accordion-flush accordion-item mb-0 ">
-                        <button class="accordion-button collapsed btn btn-light" type="button" data-bs-toggle="collapse" 
+                        <a class="accordion-button collapsed btn btn-light p-1" type="button" data-bs-toggle="collapse" 
                         data-bs-target="#packetList" aria-expanded="false" aria-controls="packetList">
                             Xem # gói Tour
-                        </button>
+                        </a>
                     </div>
                     <button class="btn btn-primary">+ Thêm gói Tour</button>
                 </div>       
             </div>
         </div>
         <div class="accordion-collapse collapse" id="packetList">
-            <app-packet-list></app-packet-list>
+            <app-packet-list ></app-packet-list>
         </div>
     </div>
 </div>

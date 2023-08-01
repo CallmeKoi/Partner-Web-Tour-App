@@ -9,7 +9,9 @@ import { AccountComponent } from './account/account.component';
 const routes: Routes = [
   {path: '',redirectTo: "/home", pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'tour', component: TourComponent},
+  {path: 'tour', component: TourComponent, children: [
+    
+  ]},
   {path: 'promo', component: PromoComponent},
   {path: 'bs-perform', component: BsPerformComponent},
   {path: 'account', component: AccountComponent}
