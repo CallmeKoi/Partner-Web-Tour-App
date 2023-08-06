@@ -7,25 +7,28 @@
 //     public Contact: string,
 //     public Description: string,
 //     public Highlights: string[],
-//     public MainImageUrl: string,
+//     public BannerUrl: string,
 //     public SubimageUrl: string[],
-//     public Itinerary: string[],
+//     public Itinerary: Itinerary[],
 //     public State: string,
 //     public ServicePrice: number,
 //     public Additional: string
+//     public Packets: PacketTour[],
 //     ){} 
 // }
 
 import { PacketTour } from "./packetTour.model";
-
+import { Itinerary } from "./tourItinerary.model";
 //Testing Tour
-export class Tour{
+export class Tour {
     constructor(
         public Id: string,
         public Name: string,
-        public ImageUrl: string,
+        public BannerUrl: string,
         public ForSale: boolean,
+        public Highlights: '',
+        public Itinerary: Itinerary[],
         public Packets: PacketTour[] | null
-    ){}
+    ) { }
 }
 

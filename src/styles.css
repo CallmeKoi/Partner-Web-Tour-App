@@ -13,3 +13,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: flex;
     flex: 1 1 auto;
 }
+
+textarea {
+  overflow-y: scroll; resize: none;
+  height: 100px;
+}

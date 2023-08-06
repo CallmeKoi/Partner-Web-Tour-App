@@ -18,6 +18,8 @@ import { PacketListComponent } from './tour/tour-list/tour-item/packet-list/pack
 import { PacketItemComponent } from './tour/tour-list/tour-item/packet-list/packet-item/packet-item.component';
 import { TourEditComponent } from './tour/tour-edit/tour-edit.component';
 import { PacketEditComponent } from './tour/packet-edit/packet-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ScrollSpyDirective } from './directives/scroll-spy.directive';
 
 @NgModule({
   declarations: [
@@ -36,11 +38,13 @@ import { PacketEditComponent } from './tour/packet-edit/packet-edit.component';
     PacketListComponent,
     TourEditComponent,
     PacketEditComponent,
+    ScrollSpyDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,74 +1,202 @@
-<div class="container">
-    <form action="">
-        <!--Thông tin chung-->
-        <div>
-            <h4>Thông tin chung</h4>
-            <div class="form-group">
-                <label for="TourName">Tên Trải nghiệm</label>
-                <input type="text" id="TourName" formControlName="TourName" class="form-control">
-            </div>
 
-            <div class="form-group">
-                <label for="TourDesc">Mô tả Trải nghiệm</label>
-                <textarea type="text" id="TourDesc" formControlName="TourDesc" class="form-control" 
-                rows="6"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="TourName">Ưu điểm</label>
-                <small class="form-text text-muted">Những điểm nổi bật của trải nghiệm</small>
-                <input type="text" id="TourName" formControlName="TourName" class="form-control">
-            </div>
-
-            <div class="form-group">
-                <label for="">Số liên lạc đối tác</label>
-                <input type="text" id="Contact" formControlName="Contact" class="form-control">
-            </div>
-
-            <div class="form-group">
-                <label for="">Địa điểm tham quan</label>
-                <input type="text" id="Location" formControlName="Location" class="form-control">
-            </div>
-
-            <div class="form-group form-check">
-                <label for="">Ngôn ngữ</label>
-                <input type="checkbox" id="Language" formControlName="Language" class="form-check-input">
-            </div>
+<div class="row">
+    <div class="col-md-3">
+        <div style="cursor: pointer;"(click)="scrollTo('section1')" routerLinkActive="active">
+            Thông tin chung
+            <ng-container *ngIf="currentSection==='section1'">O</ng-container>
         </div>
-        <!---->
-        <!--Hành trình tour-->
-        <div>
-
+        <div style="cursor: pointer;" (click)="scrollTo('section2')" routerLinkActive="active">
+            Hành trình Tour
+        <ng-container *ngIf="currentSection==='section2'">O</ng-container>
         </div>
-        <!---->
-        <!--Thông tin đưa đón-->
-        <div>
-            <h4>Thông tin đưa đón</h4>
-            <div class="form-control">
-                <label for="">Giá dịch vụ
-                    <span class="form-text text-muted">(Tùy chọn)</span>
-                </label>
-                <input type="text" id="Price" formControlName="Price" class="form-control">
-            </div>
-
-            <div class="form-group">
-                <label for="TourDesc">Thông tin đưa đón
-                    <span class="form-text text-muted">(Tùy chọn)</span>
-                </label>
-                <textarea type="text" id="TourDesc" formControlName="TourDesc" class="form-control" 
-                rows="6"></textarea>
-            </div>
+        <div style="cursor: pointer;" (click)="scrollTo('section3')" routerLinkActive="active">
+            Thông tin đưa đón
+        <ng-container *ngIf="currentSection==='section3'">O</ng-container>
         </div>
-        <!---->
-        <!--Ảnh minh họa-->
-        <div>
-            <div class="form-group">
-                <label for="Banner">Chọn ảnh chính</label>
-                <input type="file" id="Banner" class="form-control-file" >
-            </div>
+        <div style="cursor: pointer;" (click)="scrollTo('section4')" routerLinkActive="active">
+            Ảnh minh họa
+        <ng-container *ngIf="currentSection==='section4'">O</ng-container>
         </div>
-        <!---->
-        <!--Kiểm tra lại-->
-        <!---->
-    </form>
+        <br/>
+    </div>
+    <div class="col-md-9" id="parentDiv" scrollSpy 
+        [spiedTags]="['DIV']" (sectionChange)="onSectionChange($event)" 
+        style="height: 80vh;overflow-y: scroll;">
+        <form [formGroup]="tourForm">
+            <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example container">
+                <fieldset name="info" id="list-item-1" class="d-grid gap-3">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h4>Thông tin chung</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="TourName">Tên Trải nghiệm</label>
+                                <input type="text" id="TourName" formControlName="TourName" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="TourDesc">Mô tả Trải nghiệm</label>
+                                <textarea type="text" id="TourDesc" formControlName="TourDesc" class="form-control" 
+                                rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="Contact">Số liên lạc đối tác</label>
+                                <input type="text" id="Contact" formControlName="Contact" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="Location">Địa điểm tham quan</label>
+                                <input type="text" id="Location" formControlName="Location" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group form-check">
+                                <label for="Language">Ngôn ngữ</label>
+                                <input type="checkbox" id="Language" formControlName="Language" class="form-check-input">
+                            </div>
+                        </div>
+                    </div>       
+                </fieldset> 
+                <br><hr>
+                <fieldset name="itinerary" id="list-item-2" class="d-grid gap-3">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h4>Hành trình Tour</h4>
+                        </div>
+                    </div>
+                    <div class="row" formArrayName="itineraryList">
+                        <div class="col-md-10" *ngFor="let day of itineraryListArray.controls; let i = index">
+                            <div class="card" [formGroupName]="i">
+                                <div class="car-body">
+                                    <div class="card-title row">
+                                        <h5 style="text-align: center;">Ngày {{i+1}}</h5>
+                                    </div>
+                                </div>
+                                <hr class="card-body m-0 p-0">
+                                <ng-container [formGroup]="activityFormGroup(i)">
+                                    <div class="card-body" formArrayName="activityList">
+                                        <div class="card-title row">
+                                            <div class="col-sm-5">
+                                                <b>Thời gian</b>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <b>Hoạt động</b>
+                                            </div>
+                                        </div>
+                                        <div class="row" *ngFor="let activity of activityList(i).controls; let j = index">
+                                            <ng-container [formGroupName]="j">
+                                                <div class="col-sm-5">
+                                                    <div class="row">
+                                                        <div class="col-sm-5">
+                                                            <input type="text" class="form-control" formControlName="startTime">
+                                                        </div>
+                                                        <div class="col-sm-1">
+                                                            <span>-</span>
+                                                        </div>
+                                                        <div class="col-sm-5">
+                                                            <input type="text" class="form-control" formControlName="endTime">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" formControlName="activity">
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <a (click)="removeActivity(i,j)" *ngIf="activityList(i).length > 1"
+                                                            class="link-danger" style="cursor: pointer;">
+                                                                <i class="bi bi-trash" style="font-size: 1rem;"></i>Xóa
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>  
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                                <hr class="card-body m-0 p-0">
+                                <div class="card-body">
+                                    <button (click)="addActivity(i)">Thêm hoạt động</button>
+                                </div>
+                            </div>
+                            <button (click)="addItinerary()">Thêm ngày</button>
+                            <button *ngIf="itineraryListArray.length > 1" (click)="removeItinerary(i)">Xóa ngày</button>
+                        </div>
+                    </div> 
+                </fieldset>
+                <br><hr>
+                <fieldset name="transport" id="list-item-3" class="d-grid gap-3">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h4>Thông tin đưa đón</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="">Giá dịch vụ
+                                    <span class="form-text text-muted">(Tùy chọn)</span>
+                                </label>
+                                <input type="text" id="Price" formControlName="Price" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="TourTrans">Thông tin đưa đón
+                                    <span class="form-text text-muted">(Tùy chọn)</span>
+                                </label>
+                                <textarea type="text" id="TourTrans" formControlName="TourTrans" class="form-control" 
+                                rows="10" style="overflow-y: scroll; resize: none;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <br><hr>
+                <fieldset name="images" id="list-item-4" class="d-grid gap-3">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h4>Ảnh minh họa</h4>
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <label for="Banner">Chọn ảnh chính</label>
+                                <input type="file" id="Banner" class="form-control-file">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div> 
+        </form>
+    </div>
+    <br><hr>
+    <button form="tourForm" type="submit" (click)=" saveActivity()">Lưu và gửi</button>
 </div>
+
+

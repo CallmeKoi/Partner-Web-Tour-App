@@ -21,11 +21,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/bs-perform" routerLinkActive="active">
-                        Hiệu quả kinh doanh
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">
                         Báo cáo tài chính
                     </a>
                 </li>
@@ -34,11 +29,16 @@
                         <i class="bi bi-shop" style="font-size: 1rem; color: forestgreen;"></i>
                          Tour của Tôi
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="TourDropdown">
-                    <li><a class="dropdown-item" href="#">My Tour</a></li>
-                    <li><a class="dropdown-item" href="#">Another Tour</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="TourDropdown"
+                    style=" overflow-y: scroll;height: 100px;">
+                    <li><a class="dropdown-item" *ngFor="let tour of tourList">
+                        {{ tour.Name}}
+                    </a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" routerLink="/tour">Tour của tôi</a></li>
+                    <li style="display: inline-block; position: relative; bottom: 0%;">
+                        <!-- <div style="display: inline-block; position: fixed; bottom: 0px;"> -->
+                        <button class="btn btn-primary mx-auto p-2" routerLink="/tour">Tour của tôi</button>
+                    </li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

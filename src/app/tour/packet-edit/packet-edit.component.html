@@ -1,1 +1,244 @@
-<p>packet-edit works!</p>
+<div class="row">
+    <div class="col-md-3">
+        <div style="cursor: pointer;"(click)="scrollTo('section1')" routerLinkActive="active">
+            Thông tin chung
+            <ng-container *ngIf="currentSection==='section1'">O</ng-container>
+        </div>
+        <div style="cursor: pointer;" (click)="scrollTo('section2')" routerLinkActive="active">
+            Hành trình Tour
+        <ng-container *ngIf="currentSection==='section2'">O</ng-container>
+        </div>
+        <div style="cursor: pointer;" (click)="scrollTo('section3')" routerLinkActive="active">
+            Thông tin đưa đón
+        <ng-container *ngIf="currentSection==='section3'">O</ng-container>
+        </div>
+        <div style="cursor: pointer;" (click)="scrollTo('section4')" routerLinkActive="active">
+            Ảnh minh họa
+        <ng-container *ngIf="currentSection==='section4'">O</ng-container>
+        </div>
+        <br/>
+    </div>
+    <div class="col-md-9" >
+        <form [formGroup]="packetForm">
+            <div class="container" id="parentDiv" scrollSpy 
+            [spiedTags]="['DIV']" (sectionChange)="onSectionChange($event)" 
+            style="height:80vh;overflow-y: scroll;">
+                <fieldset name="info" id="section1" class="d-grid gap-3">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h4>Thông tin gói Tour</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="PacketName">Tên Gói Tour</label>
+                                <input type="text" id="PacketName" formControlName="PacketName" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="PacketDesc">Mô tả Chuyến đi</label>
+                                <textarea type="text" id="PacketDesc" formControlName="PacketDesc" class="form-control" 
+                                rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-7">
+                           <div class="form-group">
+                            <label for="Duration">Nhập thời lượng chuyến đi</label>
+                            <input type="text" id="Duration" formControlName="Duration" class="form-control">
+                            <small> ngày</small>
+                           </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <p>Ngày bán vé</p>
+                                <div class="d-flex g-3 justify-content-around">
+                                   <label>Từ ngày: </label>
+                                    <input type="text" formControlName="startDate" class="form-control"> 
+                                    <label>Đến ngày: </label>
+                                    <input type="text" formControlName="endDate" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>     
+                </fieldset> 
+                <br><hr>
+                <fieldset name="voucher" id="section2" class="d-grid gap-3">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h4>Cài đặt đơn hàng và Vé</h4>
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h5>Cài đặt đơn hàng</h5>
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p>Khách hàng có phải đặt chỗ trước khi thanh toán?</p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pYes" id="pYes"
+                                formControlName="Preserve" value="true">
+                                <label class="form-check-label" for="pYes">
+                                  Có
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pNo" id="pNo"
+                                formControlName="Preserve" value="false">
+                                <label class="form-check-label" for="pNo">
+                                  Không
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-md-7">
+                            <label for="">Đặt trước tối thiểu:</label>
+                            <div class="d-flex justify-content-around">
+                                <input type="text" formControlName="PreDays" class="form-control">
+                                <small> ngày</small>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h5>Cài đặt sử dụng vé</h5>
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p>Khách hàng có phải đặt chỗ trước khi thanh toán?</p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pYes" id="pYes"
+                                formControlName="Preserve" value="true">
+                                <label class="form-check-label" for="pYes">
+                                  Có
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pNo" id="pNo"
+                                formControlName="Preserve" value="false">
+                                <label class="form-check-label" for="pNo">
+                                  Không
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <br><hr>
+                <fieldset name="price" id="section3" class="d-grid gap-3">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h4>Số lượng bán và giá cả</h4>
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p>Xác định số lượng vé tiếp nhận cho 1 ngày tham quan</p>
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-md-7">
+                            <label for="SLVoucher">Đặt trước tối thiểu:</label>
+                            <div class="d-flex justify-content-around">
+                                <input type="text" formControlName="SLVoucher" class="form-control">
+                                <small> Vé</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p>Giá bán</p>
+                            <hr>
+                            <div class="card mb-3">
+                                <div class="card-body d-flex justify-content-between" >
+                                    <h5 class="card-title">Số lượng gói Tour</h5>
+                                    <h5>[Người lớn]</h5>
+                                </div>
+            
+                                <div class="card-body">
+                                    <div class="row">
+                                        <label for="GocA">Giá bán tại chỗ</label>
+                                        <input type="text" formControlName="GocA" class="form-control">
+                                    </div>
+                                    <div class="row">
+                                        <label for="AppA">Giá bán trên App</label>
+                                        <input type="text" formControlName="AppA" class="form-control">
+                                    </div>
+                                    <div class="row">
+                                        <label for="TNA">Thu nhập nhận được</label>
+                                        <input type="text" class="form-control" value="" aria-label="thu_nhap" disabled readonly>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="card mb-3">
+                                <div class="card-body d-flex justify-content-between" >
+                                    <h5 class="card-title">Số lượng gói Tour</h5>
+                                    <h6>[Trẻ em]</h6>
+                                </div>
+            
+                                <div class="card-body">
+                                    <div class="row">
+                                        <label for="GocC">Giá bán tại chỗ</label>
+                                        <input type="text" formControlName="GocC" class="form-control">
+                                    </div>
+                                    <div class="row">
+                                        <label for="AppC">Giá bán trên App</label>
+                                        <input type="text" formControlName="AppC" class="form-control">
+                                    </div>
+                                    <div class="row">
+                                        <label for="TNC">Thu nhập nhận được</label>
+                                        <input type="text" class="form-control" value="" aria-label="thu_nhap" disabled readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </fieldset>
+                <br><hr>
+                <fieldset name="policy" id="section4" class="d-grid gap-3">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h4>Điều khoản & Điều kiện</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="policy">
+                                    Điều khoản & Điều kiện <span class="text-muted"> (Tùy chọn)</span>
+                                </label>
+                                <textarea type="text" id="policy" formControlName="policy" class="form-control" 
+                                rows="10"></textarea>                
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <br><hr>
+        </form>
+    </div>
+    <br><hr>
+    <button>Lưu và Đăng ký</button>
+</div>
